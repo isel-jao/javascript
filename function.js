@@ -56,3 +56,25 @@
 //   func1();
 //   func2();
 // }
+
+////////////////////////////////// my function ///////////////////////////////////////
+
+let ft = {
+  min: function (...args) {
+    if (args.length > 0) return args.reduce((min, v) => (min < v ? min : v));
+  },
+
+  max: function (...args) {
+    if (args.length > 0) return args.reduce((max, v) => (max > v ? max : v));
+  },
+  clone: function (value) {
+    if (typeof value != "object" || !value) return value;
+    if(Array.isArray(value))
+        return(value.map((v) => typeof value != "object"? v: ft.clone(v)));
+    let clone = {}
+    for(let key in value)
+        clone[key] = ft.clone(value[key])
+    return clone;
+  },
+};
+
