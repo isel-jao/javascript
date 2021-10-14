@@ -1,5 +1,27 @@
 "use strict";
 
+// document.getElementById(id)				    Find an element by element id
+// document.getElementsByTagName(name)		Find elements by tag name
+// document.getElementsByClassName(name)	Find elements by class name
+// document.querySelector()
+// document.querySelectorAll()
+
+////// parentNode ////// (read only)
+// returns an element object representing parent element if present or else it will return null.
+
+////// parentElement ////// (read only)
+// returns an element object representing parent element if present or else it will return null.
+
+////// children ////// (element)
+// returns the child elements of an element as objects.
+// firstElementChild = childNodes[0]
+// lastElementChild = childNodes[-1]
+
+////// childNodes ////// (nodes)
+// return a Nodelist of child nodes. Nodelist items are objects
+// firstChild = childNodes[0]
+// lastChild = childNodes[-1]
+
 const white_bg = "#d8d8d8";
 const dark_bg = "#001a33";
 
@@ -8,6 +30,8 @@ const light = 0;
 let mode_status = light;
 
 let mode_id = document.getElementById("mode");
+mode_id.style.position = "fixed";
+mode_id.style.bottom = 0;
 let highlight = document.getElementsByClassName("highlight");
 
 function switch_mode() {
@@ -50,7 +74,6 @@ window.addEventListener("scroll", function () {
 });
 
 btn.addEventListener("click", function () {
-	console.log("clicked")
   window.scroll({
     top: 0,
     left: 0,
@@ -58,10 +81,56 @@ btn.addEventListener("click", function () {
   });
 });
 
-// backToTop.classList.remove("hide")
+let div_count = 1;
+let button_count = 1;
+function create_div(innerText, cssText, el = document.body) {
+  let div = document.createElement("div");
+  div.id = "div" + div_count++;
+  div.innerText = innerText;
+  div.style.cssText += "position: relative;" + cssText;
+  el.append(div);
+  return div;
+}
 
-// document.getElementById(id)				Find an element by element id
-// document.getElementsByTagName(name)		Find elements by tag name
-// document.getElementsByClassName(name)	Find elements by class name
-// document.querySelector()
-// document.querySelectorAll()
+function create_button(innerText, cssText, el = document.body) {
+  let button = document.createElement("button");
+  button.id = "button" + button_count++;
+  button.style.cssText += "position: absolute;" + cssText;
+  button.innerText = innerText;
+  el.append(button);
+}
+
+let nav = create_div(
+  "",
+  "width: 90%;   background-color: white;\
+  margin: 40px auto; position: sticky; top:0px; transition: 400ms ease ; display:flex; flex-wrap: nowrap; justify-content: space-between;font-size: 1rem; color: black; text-transform: uppercase; align; align-items: center; padding: 20px 20px; box-sizing: border-box; font-weight: bolder"
+);
+
+let about = create_div("about", " ", nav);
+let explore = create_div("explore", " ", nav);
+let home = create_div("home", " ", nav);
+let something = create_div("something", "  ", nav);
+let contact = create_div("contact", "  ", nav);
+let menu = create_div("menu", " ", nav);
+menu.style.display = "none"
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 40) {
+    nav.style.width = "100%";
+    nav.style.color = "#fff";
+
+    nav.style.backgroundColor = "#000";
+  } else  {
+    nav.style.color = "#000";
+    nav.style.width = "80%";
+    nav.style.backgroundColor = "#fff";
+  }
+});
+
+let dim = create_div("width = " + window.innerWidth + ",   hieght = " + window.innerHeight);
+
+window.addEventListener("resize", function (event) {
+  var newWidth = window.innerWidth;
+  var newHeight = window.innerHeight;
+  dim.innerHTML = "width = " + newWidth + ", hieght = " + newHeight;
+});
