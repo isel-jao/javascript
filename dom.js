@@ -134,3 +134,6 @@ window.addEventListener("resize", function (event) {
   var newHeight = window.innerHeight;
   dim.innerHTML = "width = " + newWidth + ", hieght = " + newHeight;
 });
+
+
+console.log("hello wrold")

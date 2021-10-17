@@ -69,12 +69,12 @@ let ft = {
   },
   clone: function (value) {
     if (typeof value != "object" || !value) return value;
-    if(Array.isArray(value))
-        return(value.map((v) => typeof value != "object"? v: ft.clone(v)));
-    let clone = {}
-    for(let key in value)
-        clone[key] = ft.clone(value[key])
+    if (Array.isArray(value))
+      return value.map((v) => (typeof value != "object" ? v : ft.clone(v)));
+    let clone = {};
+    for (let key in value) clone[key] = ft.clone(value[key]);
     return clone;
   },
 };
+
 
