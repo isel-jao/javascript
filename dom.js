@@ -112,7 +112,7 @@ let home = create_div("home", " ", nav);
 let something = create_div("something", "  ", nav);
 let contact = create_div("contact", "  ", nav);
 let menu = create_div("menu", " ", nav);
-menu.style.display = "none"
+menu.style.display = "none";
 
 window.addEventListener("scroll", function () {
   if (window.scrollY > 40) {
@@ -120,20 +120,44 @@ window.addEventListener("scroll", function () {
     nav.style.color = "#fff";
 
     nav.style.backgroundColor = "#000";
-  } else  {
+  } else {
     nav.style.color = "#000";
     nav.style.width = "80%";
     nav.style.backgroundColor = "#fff";
   }
 });
 
-let dim = create_div("width = " + window.innerWidth + ",   hieght = " + window.innerHeight);
+let dim = create_div(
+  "width = " + window.innerWidth + ",   hieght = " + window.innerHeight,
+  "postion: absolute; top: 50vh"
+);
 
-window.addEventListener("resize", function (event) {
-  var newWidth = window.innerWidth;
-  var newHeight = window.innerHeight;
-  dim.innerHTML = "width = " + newWidth + ", hieght = " + newHeight;
-});
+function go() {
+  showCircle(150, 150, 100, (div) => {
+    div.classList.add("message-ball");
+    div.append("Hello, world!");
+  });
+}
+
+function showCircle(cx, cy, radius, callback) {
+  let div = document.createElement("div");
+  div.style.width = 0;
+  div.style.height = 0;
+  div.style.left = cx + "px";
+  div.style.top = cy + "px";
+  div.className = "circle";
+  document.body.append(div);
+  console.log("waza");
+
+  setTimeout(() => {
+    div.style.width = radius * 2 + "px";
+    div.style.height = radius * 2 + "px";
+
+    div.addEventListener("transitionend", function handler() {
+      div.removeEventListener("transitionend", handler);
+      callback(div);
+    });
+  }, 0);
+}
 
 
-console.log("hello wrold")
