@@ -1,0 +1,27 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isel-jao/javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isel-jao/javascript/issues"
+  },
+  "homepage": "https://github.com/isel-jao/javascript#readme",
+  "dependencies": {
+    "date-fns": "^2.28.0",
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+  }
+}

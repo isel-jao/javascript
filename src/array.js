@@ -129,3 +129,14 @@ let arr2 = ["element1", 3, {}, []];
 //   for (let i = 0; i < size; i++) arr[i] = arr[i].splice(0, size);
 //   for (let v of arr) console.log(v);
 // }-
+
+const numbers = [10, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(numbers.reduce((x , v) => x + v));
+
+let x = numbers[0]
+
+numbers.forEach((v, i) => {
+	if (i != 0)
+	x = x + v})
+console.log(x);
