@@ -77,4 +77,5 @@ let ft = {
   },
 };
 
-
+console.log(90 / 10);
+console.log(~~(90 / 10));

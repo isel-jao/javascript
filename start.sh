@@ -1,1 +1,1 @@
-nodemon	index.js
+yarn start
