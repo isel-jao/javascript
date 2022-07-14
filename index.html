@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	#btn {
+		width: 96px;
+		height: 48px;
+		font-size: 24px;
+	}
+</style>
+
+<body>
+	<button id="btn">0</button>
+</body>
+<script>
+	const btn = document.getElementById('btn');
+	let count = 0;
+	btn.addEventListener('click', function () {
+		count++;
+		btn.innerHTML = count;
+	});
+</script>
+
+</html>
